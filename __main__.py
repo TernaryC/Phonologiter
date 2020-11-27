@@ -7,14 +7,16 @@ import pyexcel_ods3 as ods
 from os.path import basename as os_name
 from playsound import playsound
 from collections import OrderedDict
+import sys.argv as arguments
+from getopt import getopt
 from ipa import sort_IPA,                 \
                 IPA,          IPA_Other,  \
                 IPA_Place,    IPA_Manner, \
                 IPA_Backness, IPA_Height, \
                 IPA_Type,     IPA_i       \
 
-VERSION = "1.0.0"
-RELEASE = "x/x/20"
+VERSION = "1.0.0b"
+RELEASE = "11/27/20"
 load_font("assets/NotoSans-Regular.ttf")
 
 
@@ -812,7 +814,9 @@ The specific licenses for each sound can be found by clicking on the sound in th
         except Exception as e:
             self.throw_err("#UR_NUMERR", e)
 
-root = tk.Tk()
-root.resizable(False, False)
-phono = Phono(parent=root)
-phono.mainloop()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    root.resizable(False, False)
+    phono = Phono(parent=root)
+    phono.mainloop()
